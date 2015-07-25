@@ -44,7 +44,7 @@ function find_words() {
     return b.length - a.length; // ASC -> a - b; DESC -> b - a
   });
 
-  document.getElementById('results-list').textContent = found.toString()
+  document.getElementById('results-list').textContent = found.toString();
 
 }
 
