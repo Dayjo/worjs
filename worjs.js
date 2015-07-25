@@ -3,7 +3,7 @@ var words = [];
 
 function find_words() {
     var letters = "dog";
-    var reg = new RegExp("^[" + letters + "]+$");
+    var reg = new RegExp("^(?!.*?(.).*?\1)["+letters+"]*["+letters+"]*$");
   
     found = []; 
     for ( var i in words ) {
