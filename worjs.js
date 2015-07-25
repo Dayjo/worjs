@@ -25,7 +25,7 @@ function find_words() {
 		var num_letters = letters.split(letters[j]).length -1;
 		var num_of_occurences = found[i].split(letters[j]).length-1;
 		if ( num_of_occurences > num_letters ) {
-			delete found[i];
+			found[i] = '';
 		}
 	}
   }
