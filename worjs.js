@@ -22,7 +22,7 @@ function find_words() {
 
 var client = new XMLHttpRequest();
 
-client.open('GET', '/word-list-en.txt');
+client.open('GET', 'word-list-en.txt');
 
 client.onreadystatechange = function() {
   file = client.responseText;
