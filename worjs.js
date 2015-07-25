@@ -22,7 +22,7 @@ function find_words() {
 
   for ( var i in found ) {
 	for ( var j in letters ) {
-		var num_of_occurences = letters.split(letters[j]).length;
+		var num_of_occurences = letters.split(letters[j]).length -1;
 
 		if ( found[i].split(letters[j])-1 > num_of_occurences ) {
 			delete found[i];
