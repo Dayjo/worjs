@@ -1,11 +1,12 @@
 var found = [];
+var f;
 var words = [];
 
 function find_words() {
     var letters = "dog";
     var reg = new RegExp("^(?!.*?(.).*?\1)["+letters+"]*["+letters+"]*$");
   
-    var f = [];
+    f = [];
     for ( var i in words ) {
       w = words[i]; 
   
