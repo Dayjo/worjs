@@ -63,7 +63,7 @@ client.onreadystatechange = function() {
 client.send();
 
 
-document.getElementById('find-words').addEventListener('click', function(e){
+document.getElementById('find-words-form').addEventListener('submit', function(e){
 
 	letters = document.getElementById('letters').value;
 	find_words();
