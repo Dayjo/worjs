@@ -11,8 +11,9 @@ function find_words() {
       w = words[i];
   
       contains = w.match(reg);
-  
+  	
       if ( w.length && contains ) {
+      	console.log(w); console.log(w.length);
         f.push(w);
       }
     }
