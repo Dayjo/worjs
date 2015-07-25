@@ -1,9 +1,9 @@
 var found = [];
 var f;
 var words = [];
+var letters = "";
 
 function find_words() {
-    var letters = "dog";
     var reg = new RegExp("^(?!.*?(.).*?\1)["+letters+"]*["+letters+"]*$");
   
     f = [];
@@ -44,6 +44,8 @@ function find_words() {
     return b.length - a.length; // ASC -> a - b; DESC -> b - a
   });
 
+  document.getElementById('results-list').textContent = found.toString()
+
 }
 
 var client = new XMLHttpRequest();
@@ -55,10 +57,17 @@ client.onreadystatechange = function() {
   	if ( client.readyState==4 && client.status==200 ) {
 	  	file = client.responseText;
 		words = file.split(/\n\r|\n/);
-
-		find_words();
 	}
 }
 
 client.send();
 
+
+document.getElementById('find-words').addEventListener('click', function(e){
+
+	letters = document.getElementById('letters').value;
+	find_words();
+
+	e.preventDefault();
+	return false;
+});
