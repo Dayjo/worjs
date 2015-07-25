@@ -5,7 +5,7 @@ function find_words() {
     var letters = "dog";
     var reg = new RegExp("^(?!.*?(.).*?\1)["+letters+"]*["+letters+"]*$");
   
-    var f = []; 
+    var f = [];
     for ( var i in words ) {
       w = words[i]; 
   
@@ -18,12 +18,18 @@ function find_words() {
  
 
   for ( var i in f ) {
+  	var dont_add = false;
 	for ( var j in letters ) {
 		var num_letters = letters.split(letters[j]).length -1;
 		var num_of_occurences = f[i].split(letters[j]).length-1;
-		if ( num_of_occurences <= num_letters ) {
-			found.push(f[i]);
+
+		if ( num_of_occurences > num_letters ) {
+			dont_add = true;
 		}
+	}
+
+	if ( !dont_add ) {
+		found.push(f[i]);
 	}
   }
 
