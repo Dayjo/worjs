@@ -20,6 +20,16 @@ function find_words() {
     return b.length - a.length; // ASC -> a - b; DESC -> b - a
   });
 
+  for ( var i in found ) {
+	for ( var j in letters ) {
+		var num_of_occurences = search.split(letters['j']).length - 1;
+
+		if ( found[i].split(letters[j])-1 > num_of_occurences ) {
+			delete found[i];
+		}
+	}
+  }
+
   console.log(found);
 }
 
