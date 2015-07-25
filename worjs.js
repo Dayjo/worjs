@@ -13,7 +13,6 @@ function find_words() {
       contains = w.match(reg);
   	
       if ( w.length && contains ) {
-      	console.log(w); console.log(w.length);
         f.push(w);
       }
     }
