@@ -8,11 +8,11 @@ function find_words() {
   
     f = [];
     for ( var i in words ) {
-      w = words[i]; 
+      w = words[i];
   
       contains = w.match(reg);
   
-      if ( contains ) {
+      if ( w.length && contains ) {
         f.push(w);
       }
     }
