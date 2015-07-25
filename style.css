@@ -21,7 +21,7 @@ input,button {
 	border-top: 1px solid #DEDEDE;
 	padding: 1em;
 	max-height: 100%;
-	margin-top: 5.4em;
+	margin-top: 2.7em;
 	overflow-y: auto;
 	top: 0;
 	bottom:0;
@@ -36,5 +36,4 @@ input,button {
 #results-list ul{
 	list-style: none;
 	margin: 0;padding:0;
-	padding-bottom: 10em;
 }
