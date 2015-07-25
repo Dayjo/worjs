@@ -7,8 +7,9 @@ body {
 	padding: 0px;
 }
 
-input {
+input,button {
 	font-size: 2em;
+	padding: 0.5em;
 }
 
 
