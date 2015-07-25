@@ -19,6 +19,8 @@ function find_words() {
   found.sort(function(a, b){
     return b.length - a.length; // ASC -> a - b; DESC -> b - a
   });
+
+  console.log(found);
 }
 
 var client = new XMLHttpRequest();
@@ -31,8 +33,6 @@ client.onreadystatechange = function() {
   words = file.split(/\n\r|\n/);
 
   find_words();
-
-  console.log(found);
 }
 
 client.send();
