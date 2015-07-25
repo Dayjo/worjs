@@ -5,31 +5,32 @@ function find_words() {
     var letters = "dog";
     var reg = new RegExp("^(?!.*?(.).*?\1)["+letters+"]*["+letters+"]*$");
   
-    found = []; 
+    var f = []; 
     for ( var i in words ) {
       w = words[i]; 
   
       contains = w.match(reg);
   
       if ( contains ) {
-        found.push(w);
+        f.push(w);
       }
     }
  
 
-  for ( var i in found ) {
+  for ( var i in f ) {
 	for ( var j in letters ) {
 		var num_letters = letters.split(letters[j]).length -1;
-		var num_of_occurences = found[i].split(letters[j]).length-1;
-		if ( num_of_occurences > num_letters ) {
-			found[i] = '';
+		var num_of_occurences = f[i].split(letters[j]).length-1;
+		if ( num_of_occurences <= num_letters ) {
+			found.push(f[i]);
 		}
 	}
   }
-  
+
   found.sort(function(a, b){
     return b.length - a.length; // ASC -> a - b; DESC -> b - a
   });
+
 }
 
 var client = new XMLHttpRequest();
