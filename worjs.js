@@ -39,10 +39,11 @@ client.open('GET', 'word-list-en.txt');
 
 client.onreadystatechange = function() {
   file = client.responseText;
+  if ( file ) {
+	  words = file.split(/\n\r|\n/);
 
-  words = file.split(/\n\r|\n/);
-
-  find_words();
+	  find_words();
+	}
 }
 
 client.send();
