@@ -2,7 +2,7 @@ var found = [];
 var words = [];
 
 function find_words() {
-    var letters = "aabssivertepl";
+    var letters = "dog";
     var reg = new RegExp("^[" + letters + "]+$");
   
     found = []; 
