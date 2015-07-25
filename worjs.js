@@ -5,7 +5,7 @@ var letters = "";
 
 function find_words() {
     var reg = new RegExp("^(?!.*?(.).*?\1)["+letters+"]*["+letters+"]*$");
-  
+  	found = [];
     f = [];
     for ( var i in words ) {
       w = words[i];
