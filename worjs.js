@@ -15,10 +15,7 @@ function find_words() {
         found.push(w);
       }
     }
-  
-  found.sort(function(a, b){
-    return b.length - a.length; // ASC -> a - b; DESC -> b - a
-  });
+ 
 
   for ( var i in found ) {
 	for ( var j in letters ) {
@@ -29,8 +26,10 @@ function find_words() {
 		}
 	}
   }
-
-  console.log(found);
+  
+  found.sort(function(a, b){
+    return b.length - a.length; // ASC -> a - b; DESC -> b - a
+  });
 }
 
 var client = new XMLHttpRequest();
