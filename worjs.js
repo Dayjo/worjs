@@ -18,17 +18,23 @@ function find_words() {
  
 
   for ( var i in f ) {
-  	var dont_add = false;
-	for ( var j in letters ) {
-		var num_letters = letters.split(letters[j]).length -1;
-		var num_of_occurences = f[i].split(letters[j]).length-1;
+  	var add = true;
 
-		if ( num_of_occurences > num_letters ) {
-			dont_add = true;
+  	if ( f.length ) {
+		for ( var j in letters ) {
+			var num_letters = letters.split(letters[j]).length -1;
+			var num_of_occurences = f[i].split(letters[j]).length-1;
+
+			if ( num_of_occurences > num_letters ) {
+				add = false;
+			}
 		}
 	}
+	else {
+		add = false;
+	}
 
-	if ( !dont_add ) {
+	if ( add ) {
 		found.push(f[i]);
 	}
   }
