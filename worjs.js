@@ -1,4 +1,5 @@
 var found = [];
+var words = [];
 
 function find_words() {
     var letters = "aabssivertepl";
@@ -27,7 +28,7 @@ client.open('GET', 'word-list-en.txt');
 client.onreadystatechange = function() {
   file = client.responseText;
 
-  var words = file.split(/\n\r|\n/);
+  words = file.split(/\n\r|\n/);
 
   find_words();
 
