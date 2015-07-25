@@ -38,11 +38,12 @@ var client = new XMLHttpRequest();
 client.open('GET', 'word-list-en.txt');
 
 client.onreadystatechange = function() {
-  file = client.responseText;
-  if ( file ) {
-	  words = file.split(/\n\r|\n/);
 
-	  find_words();
+  	if ( client.readyState==4 && client.status==200 ) {
+	  	file = client.responseText;
+		words = file.split(/\n\r|\n/);
+
+		find_words();
 	}
 }
 
