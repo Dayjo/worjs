@@ -19,21 +19,6 @@ function find_words() {
       }
     }
  
- 	lockreg = '';
-	var ll = 0;
-	for ( var l in locks ) {
-	  
-	  if ( l - ll > 1 ) {
-	    for( var i = 1; i < (l-ll); i++ ){
-	      lockreg += '[a-z]';
-	    }
-	  }
-	  
-	  lockreg += locks[l];
-	  ll = l;
-	}
-	
-	console.log(lockreg);
 
   for ( var i in f ) {
   	var add = true;
@@ -82,7 +67,22 @@ function find_words() {
 }
 
 function update_locks() {
+	
+	lockreg = '';
+	var ll = 0;
+	for ( var l in locks ) {
+	  
+	  if ( l - ll > 1 ) {
+	    for( var i = 1; i < (l-ll); i++ ){
+	      lockreg += '[a-z]';
+	    }
+	  }
+	  
+	  lockreg += locks[l];
+	  ll = l;
+	}
 	console.log(locks);
+	console.log(lockreg);
 }
 
 var client = new XMLHttpRequest();
