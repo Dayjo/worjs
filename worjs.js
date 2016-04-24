@@ -42,7 +42,7 @@ function find_words() {
   
   found.sort();
   found.sort(function(a, b){
-    return b.length - a.length; // ASC -> a - b; DESC -> b - a
+    return b.length - a.length +1; // ASC -> a - b; DESC -> b - a
   });
 
   document.getElementById('results-list').innerHTML = '<ul><li>' + found.join("</li><li>") + '</li></ul>';
