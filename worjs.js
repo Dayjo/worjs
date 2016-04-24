@@ -48,7 +48,18 @@ function find_words() {
     return (b.length - a.length || a.localeCompare(b) ); // ASC -> a - b; DESC -> b - a
   });
 
-  document.getElementById('results-list').innerHTML = '<ul><li>' + found.join("</li><li>") + '</li></ul>';
+  var words = '';
+  for ( i = 0; i< found.length; i++ ) {
+  	word = '<li>';
+  	for ( var j = 0; j<found[i].length; j++ ){
+		word += '<a>' + found[i][j] + '</a>';
+  	}
+  	word += '</i>';
+  	
+  	words += word;
+  }
+  
+  document.getElementById('results-list').innerHTML = '<ul>' + words + '</ul>';
 
 }
 
