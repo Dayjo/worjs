@@ -2,6 +2,7 @@ var found = [];
 var f;
 var words = [];
 var letters = "";
+var locks = [];
 
 function find_words() {
     var reg = new RegExp("^(?!.*?(.).*?\1)["+letters+"]*["+letters+"]*$");
@@ -48,19 +49,22 @@ function find_words() {
     return (b.length - a.length || a.localeCompare(b) ); // ASC -> a - b; DESC -> b - a
   });
 
-  var words = '';
-  for ( i = 0; i< found.length; i++ ) {
-  	word = '<li>';
+  var html = '';
+  for ( i = 0; i < found.length; i++ ) {
+  	html += '<li>';
   	for ( var j = 0; j<found[i].length; j++ ){
-		word += '<a>' + found[i][j] + '</a>';
+		html += '<a data-i="' + j + '">' + found[i][j] + '</a>';
   	}
-  	word += '</i>';
+  	html += '</li>';
   	
-  	words += word;
   }
-  
-  document.getElementById('results-list').innerHTML = '<ul>' + words + '</ul>';
 
+  document.getElementById('results-list').innerHTML = '<ul>' + html + '</ul>';
+
+}
+
+function update_locks() {
+	console.log(locks);
 }
 
 var client = new XMLHttpRequest();
@@ -87,6 +91,20 @@ document.getElementById('find-words-form').addEventListener('submit', function(e
 	return false;
 });
 
+document.getElementById('results-list').addEventListener('click', function(event){
+	if ( event.target.tagName == 'A' ) {
+		var i = event.target.getAttribute('data-i');
+		var char = event.target.textContent;
+		
+		if ( locks[i] == char ) {
+			delete locks[i];
+		} else {
+			locks[i] = char;	
+		}
+		
+		update_locks();
+	}	
+});
 
 var q = document.getElementById('letters');
 var recognition = new webkitSpeechRecognition();
