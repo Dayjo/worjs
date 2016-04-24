@@ -31,6 +31,10 @@ input {
 	font-size: 1rem;
 }
 
+#maxLength, #minLength {
+	width: 5em;
+}
+
 
 #results-list {
 	border-top: 1px solid #DEDEDE;
@@ -64,8 +68,8 @@ input {
 	left: 0; top: 0;
 	bottom: -1px;
 	padding: 0.5em;
-	background: rgb(49, 159, 87);
-	border-bottom: 1px solid rgb(39, 124, 68);
+	background: #319f57;
+	border-bottom: 1px solid #277c4e;
 	color: white;
 	min-width: 1.5em;
 	line-height: 1.5em;

@@ -10,8 +10,8 @@ body.loader--loading:before {
 
         content: attr(data-loader-caption);
         text-align: center;
-		text-shadow: 1px 1px 2px black;
-        color: white;
+		vertical-align: middle;
+        color: black;
 
         cursor: wait;
         padding: 0;
@@ -20,9 +20,11 @@ body.loader--loading:before {
         left: 0; right: 0;
         top: 0; bottom: 0;
 
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(255,255,255,0.5);
         background-repeat: no-repeat;
         background-position: center 30%;
+
+		background-image: url('loader.svg?s=2');
 
 }
 

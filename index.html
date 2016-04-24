@@ -10,14 +10,20 @@
 
 	<form id='find-words-form'>
 		<input type="text" id='letters' tabindex=0 autofocus x-webkit-speech>
-			<label for="starsWith">Stars With:
-		 		<input type="text" id='startswith' tabindex=1 />
+			<label for="starsWith">Starts With:
+		 		<input type="text" id='startsWith' tabindex=1 />
 			</label>
-			<label for="starsWith">Contains:
-				<input type="text" id='contains' tabindex=1 />
+			<label for="containsChars">Contains:
+				<input type="text" id='containsChars' tabindex=2 />
 			</label>
-			<label for="starsWith">Ends With:
-		 		<input type="text" id='endswith' tabindex=1 />
+			<label for="endsWith">Ends With:
+		 		<input type="text" id='endsWith' tabindex=3 />
+		 	</label>
+			<label for="minLength">Min Length:
+		 		<input type="text" id='minLength' tabindex=4 value="2" />
+		 	</label>
+			<label for="maxLength">Max Length:
+		 		<input type="text" id='maxLength' tabindex=5  />
 		 	</label>
 		<!-- <button id="find-words">Find</button> -->
 		<!-- <input type="button" value="Click to Speak" onclick="recognition.start()"> -->

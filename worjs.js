@@ -6,6 +6,7 @@ var locks = {};
 var lockreg = '';
 var runTimeout;
 var ignoreWords = JSON.parse(localStorage.getItem('ignoreWords')) || [];
+var maxLength, minLength, containsChars, startsWith, endsWith;
 
 var scores = {
 	a: 1,
@@ -24,12 +25,28 @@ function find_words() {
     var reg = new RegExp("^(?!.*?(.).*?\1)["+letters+"]*["+letters+"]*$");
   	found = [];
     f = [];
+	maxLength = document.getElementById('maxLength').value;
+	minLength = document.getElementById('minLength').value;
+	startsWith = document.getElementById('startsWith').value;
+	containsChars = document.getElementById('containsChars').value;
+	endsWith = document.getElementById('endsWith').value;
 
+	letters += startsWith;
+	letters += containsChars;
+	letters += endsWith;
 
 	for ( var i in words ) {
 	      w = words[i];
 
-		  if ( ignoreWords.indexOf(w) > -1 ) {
+		  // If it's one of the ignored words
+		  if ( w == 'banned' ) {
+			  console.log('here');
+		  }
+		  if ( ignoreWords.indexOf(w) > -1 ||
+	  			(maxLength && w.length > maxLength) || (minLength && w.length < minLength) ||
+			 	(containsChars.length && w.indexOf(containsChars) == -1) ||
+				(startsWith.length && w.substr(0, startsWith.length) != startsWith) ||
+				(endsWith.length && w.split("").reverse().join("").substr(0, endsWith.length).split("").reverse().join("") != endsWith)) {
 			  continue;
 		  }
 
@@ -151,18 +168,20 @@ client.send();
 
 function run(e) {
 	clearTimeout(runTimeout);
-	Loader.start('Finding Words...', '#results-list');
+	Loader.start(null, '#results-list');
 	runTimeout = setTimeout(function(){
-
-
 		var l = document.getElementById('letters').value.toLowerCase();
 		l = l.replace(/[^a-z\*]/g,"");
 
-		if ( letters != l ) {
+		if ( !l ) {
+			Loader.stop();
+		}
+
+		//if ( letters != l ) {
 			letters = l;
 			locks = {}; lockreg = '';
 			find_words();
-		}
+
 	}, 300);
 
 	e.preventDefault();
@@ -172,6 +191,11 @@ function run(e) {
 
 document.getElementById('find-words-form').addEventListener('submit', run);
 document.getElementById('letters').addEventListener('keyup', run);
+document.getElementById('startsWith').addEventListener('keyup', run);
+document.getElementById('endsWith').addEventListener('keyup', run);
+document.getElementById('containsChars').addEventListener('keyup', run);
+document.getElementById('maxLength').addEventListener('keyup', run);
+document.getElementById('minLength').addEventListener('keyup', run);
 
 document.getElementById('results-list').addEventListener('click', function(event){
 	if ( event.target.tagName == 'A' ) {
