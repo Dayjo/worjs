@@ -3,23 +3,38 @@ body, input, button{
 	font-size: 16px;
 }
 
-body { 
-	padding: 0px;
+body,html {
+	padding: 0; margin: 0;
 }
 
 form {
-	text-align: center;
+	text-align: left;
+	padding: .5em
 }
 
-input,button {
+input#letters {
 	font-size: 2em;
 	padding: 0.5em;
+	float: left;
+	margin-right: 0.25em;
+}
+
+label {
+	float: left;
+	font-size: .7em;
+	margin-right: 0.5em;
+
+}
+
+input {
+	display: block;
+	font-size: 1rem;
 }
 
 
 #results-list {
 	border-top: 1px solid #DEDEDE;
-	padding: 1em;
+	padding: 0;
 	max-height: 100%;
 	margin-top: 2.7em;
 	overflow-y: auto;
@@ -36,4 +51,42 @@ input,button {
 #results-list ul{
 	list-style: none;
 	margin: 0;padding:0;
+}
+
+#results-list li {
+	position: relative;
+	border-bottom: 1px solid #DEDEDE;
+}
+
+.score {
+	font-size: 0.5em;
+	position: absolute;
+	left: 0; top: 0;
+	bottom: -1px;
+	padding: 0.5em;
+	background: rgb(49, 159, 87);
+	border-bottom: 1px solid rgb(39, 124, 68);
+	color: white;
+	min-width: 1.5em;
+	line-height: 1.5em;
+}
+
+#results-list li .delete {
+	content: "\00d7";
+	cursor: pointer;
+	font-size: 1em;
+	position: absolute;
+	right: 0; top: 0;
+	bottom: -1px;
+
+	background: rgb(159, 49, 49);
+	border-bottom: 1px solid rgb(124, 39, 39);
+	color: white;
+	min-width: 1.5em;
+	line-height: 1.2em;
+
+}
+
+#results-list li .delete:hover {
+	background: rgb(173, 55, 55);
 }
