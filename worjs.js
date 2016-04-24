@@ -22,7 +22,18 @@ function find_words() {
   for ( var i in f ) {
   	var add = true;
 
-  	if ( f.length ) {
+	var reg = '';
+	for ( var l = 0; l < locks.length; l++ ) {
+		if ( reg.length || locks[l] ) {
+			reg += ( locks[l] ? locks[l] : "[a-z]");
+		}
+
+		if (locks[l] && locks[l] != f[i][l] ) {
+			add = false;
+		}
+	}
+	
+  	if ( add && f.length ) {
 		for ( var j in letters ) {
 			var num_letters = letters.split(letters[j]).length -1;
 			var num_of_occurences = f[i].split(letters[j]).length-1;
