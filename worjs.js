@@ -31,6 +31,8 @@ function find_words() {
 	  reg += locks[l];
 	  ll = l;
 	}
+	
+	console.log(reg);
 
   for ( var i in f ) {
   	var add = true;
