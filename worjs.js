@@ -83,6 +83,8 @@ function update_locks() {
 	}
 	console.log(locks);
 	console.log(lockreg);
+	
+	find_words();
 }
 
 var client = new XMLHttpRequest();
