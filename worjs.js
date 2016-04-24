@@ -39,7 +39,8 @@ function find_words() {
 		found.push(f[i]);
 	}
   }
-
+  
+  found.sort();
   found.sort(function(a, b){
     return b.length - a.length; // ASC -> a - b; DESC -> b - a
   });
