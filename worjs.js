@@ -18,22 +18,26 @@ function find_words() {
       }
     }
  
+ 	var reg = '';
+	var ll = 0;
+	for ( var l in locks ) {
+	  
+	  if ( l - ll > 1 ) {
+	    for( var i = 1; i < (l-ll); i++ ){
+	      reg += '[a-z]';
+	    }
+	  }
+	  
+	  reg += locks[l];
+	  ll = l;
+	}
 
   for ( var i in f ) {
   	var add = true;
 
-	var reg = '';
-	for ( var l = 0; l < locks.length; l++ ) {
-		if ( reg.length || locks[l] ) {
-			reg += ( locks[l] ? locks[l] : "[a-z]");
-		}
-
-		if (locks[l] && locks[l] != f[i][l] ) {
-			add = false;
-		}
-	}
+	add = (f[i].match(reg).length > 0);
 	
-  	if ( add && f.length ) {
+  	if ( add && f[i].length ) {
 		for ( var j in letters ) {
 			var num_letters = letters.split(letters[j]).length -1;
 			var num_of_occurences = f[i].split(letters[j]).length-1;
