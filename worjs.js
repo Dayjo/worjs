@@ -45,7 +45,7 @@ function find_words() {
   	if ( b.length == a.length ) {
   		return 0;
   	}
-    return (b.length - a.length); // ASC -> a - b; DESC -> b - a
+    return (b.length - a.length || a.localeCompare(b) ); // ASC -> a - b; DESC -> b - a
   });
 
   document.getElementById('results-list').innerHTML = '<ul><li>' + found.join("</li><li>") + '</li></ul>';
