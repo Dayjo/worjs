@@ -65,7 +65,7 @@ client.send();
 
 document.getElementById('find-words-form').addEventListener('submit', function(e){
 
-	letters = document.getElementById('letters').value;
+	letters = document.getElementById('letters').value.toLowerCase();
 	find_words();
 
 	e.preventDefault();
