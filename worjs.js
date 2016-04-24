@@ -3,6 +3,7 @@ var f;
 var words = [];
 var letters = "";
 var locks = {};
+var lockreg = '';
 
 function find_words() {
     var reg = new RegExp("^(?!.*?(.).*?\1)["+letters+"]*["+letters+"]*$");
@@ -18,26 +19,26 @@ function find_words() {
       }
     }
  
- 	var reg = '';
+ 	lockreg = '';
 	var ll = 0;
 	for ( var l in locks ) {
 	  
 	  if ( l - ll > 1 ) {
 	    for( var i = 1; i < (l-ll); i++ ){
-	      reg += '[a-z]';
+	      lockreg += '[a-z]';
 	    }
 	  }
 	  
-	  reg += locks[l];
+	  lockreg += locks[l];
 	  ll = l;
 	}
 	
-	console.log(reg);
+	console.log(lockreg);
 
   for ( var i in f ) {
   	var add = true;
 
-	add = (f[i].match(reg).length > 0);
+	add = (f[i].match(lockreg).length > 0);
 	
   	if ( add && f[i].length ) {
 		for ( var j in letters ) {
