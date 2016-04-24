@@ -2,7 +2,7 @@ var found = [];
 var f;
 var words = [];
 var letters = "";
-var locks = [];
+var locks = {};
 
 function find_words() {
     var reg = new RegExp("^(?!.*?(.).*?\1)["+letters+"]*["+letters+"]*$");
